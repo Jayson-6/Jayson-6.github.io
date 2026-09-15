@@ -78,6 +78,67 @@
             border-radius: 20px;
             font-size: 0.85em;
             margin-top: 6px;
+            margin-right: 6px;
+        }
+
+        .finding-list {
+            margin: 16px 0;
+            padding-left: 20px;
+        }
+
+        .finding-list li {
+            margin-bottom: 10px;
+        }
+
+        .chart-title {
+            font-weight: 600;
+            font-size: 0.95em;
+            color: #374151;
+            margin: 24px 0 16px;
+        }
+
+        .chart-wrap {
+            display: flex;
+            align-items: flex-end;
+            gap: 24px;
+            height: 180px;
+            padding: 0 10px;
+            border-bottom: 2px solid #d1d5db;
+        }
+
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+
+        .bar {
+            width: 100%;
+            max-width: 60px;
+            background-color: #d85a30;
+            border-radius: 4px 4px 0 0;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            color: white;
+            font-size: 0.8em;
+            font-weight: 600;
+            padding-top: 4px;
+        }
+
+        .bar-label {
+            margin-top: 8px;
+            font-size: 0.85em;
+            color: #6b7280;
+            text-align: center;
+        }
+
+        .chart-caption {
+            text-align: center;
+            font-size: 0.85em;
+            color: #6b7280;
+            margin-top: 10px;
         }
 
         footer {
@@ -134,10 +195,57 @@
             <div class="project">
                 <h3>Student Performance Analysis</h3>
                 <p>
-                    An analysis of student performance to identify factors
-                    associated with academic outcomes.
+                    An analysis of a public student records dataset to test three common
+                    assumptions about academic performance: whether study time, class
+                    absences, or past failures relate to a student's final grade.
                 </p>
                 <span class="tool-tag">Microsoft Excel</span>
+                <span class="tool-tag">Pivot Tables</span>
+                <span class="tool-tag">CORREL Function</span>
+
+                <p style="margin-top: 18px;"><strong>Method:</strong> Used Excel's CORREL
+                function to measure the statistical relationship between each factor and
+                final grade (G3), then built a pivot table and chart to visualise the
+                clearest result.</p>
+
+                <p style="margin-top: 12px;"><strong>Findings:</strong></p>
+                <ul class="finding-list">
+                    <li><strong>Study time</strong> showed almost no relationship with final
+                    grade (correlation of 0.10) &mdash; more reported study hours did not
+                    reliably predict better results.</li>
+                    <li><strong>Absences</strong> also showed almost no relationship
+                    (correlation of 0.03).</li>
+                    <li><strong>Past class failures</strong> had a clear negative
+                    relationship with final grade (correlation of &minus;0.36) &mdash;
+                    students with more prior failures consistently scored lower.</li>
+                </ul>
+
+                <div class="chart-title">Average final grade by number of past failures</div>
+                <div class="chart-wrap">
+                    <div class="bar-group">
+                        <div class="bar" style="height: 149px;">11.3</div>
+                        <div class="bar-label">0 failures</div>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar" style="height: 108px;">8.1</div>
+                        <div class="bar-label">1 failure</div>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar" style="height: 83px;">6.2</div>
+                        <div class="bar-label">2 failures</div>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar" style="height: 76px;">5.7</div>
+                        <div class="bar-label">3 failures</div>
+                    </div>
+                </div>
+                <p class="chart-caption">Average final grade (out of 20) drops as prior failures increase</p>
+
+                <p style="margin-top: 18px;"><strong>Takeaway:</strong> Effort signals like
+                study time and attendance were weak predictors in this dataset, while a
+                track record of past failures was the strongest single predictor of future
+                performance &mdash; suggesting early academic struggles compound rather
+                than resolving on their own.</p>
             </div>
         </section>
 
